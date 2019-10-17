@@ -59,23 +59,51 @@ def simp_poligono(vet_pontos, tolerancia)
         return pontos_resultantes
 end
 
+
+
 vet_pontos = Array.new
 pontos_resultantes = Array.new
 result1 = Array.new
 result2 = Array.new
 resultado_final = Array.new
-vet_pontos.push(Ponto.new("p1",0,1)) #0
-vet_pontos.push(Ponto.new("p2",1,2)) #1
-vet_pontos.push(Ponto.new("p3",2,2)) #2
-vet_pontos.push(Ponto.new("p4",4,4)) #3
-vet_pontos.push(Ponto.new("p5",5,3)) #4
-vet_pontos.push(Ponto.new("p6",6,3)) #5
-vet_pontos.push(Ponto.new("p7",7,1)) #6
+#CASO DE TESTE 1
+#vet_pontos.push(Ponto.new("p1",0,1)) #0
+#vet_pontos.push(Ponto.new("p2",1,2)) #1
+#vet_pontos.push(Ponto.new("p3",2,2)) #2
+#vet_pontos.push(Ponto.new("p4",4,4)) #3
+#vet_pontos.push(Ponto.new("p5",5,3)) #4
+#vet_pontos.push(Ponto.new("p6",6,3)) #5
+#vet_pontos.push(Ponto.new("p7",7,1)) #6
 
+#CASO DE TESTE 2
+#vet_pontos.push(Ponto.new("p1",1,2)) #0
+#vet_pontos.push(Ponto.new("p2",2,3)) #1
+#vet_pontos.push(Ponto.new("p3",3,4)) #2
+#vet_pontos.push(Ponto.new("p4",5,2)) #3
+#vet_pontos.push(Ponto.new("p5",4,2)) #4
+#vet_pontos.push(Ponto.new("p6",6,1)) #5
+#vet_pontos.push(Ponto.new("p7",8,1)) #6
+#vet_pontos.push(Ponto.new("p8",9,2)) #7
+#vet_pontos.push(Ponto.new("p9",10,3)) #8
+#tolerancia = 2
+
+print "Quantos pontos desse inserir? "
+n_pontos = gets.chomp.to_i
+for i in 0..n_pontos - 1 do
+    nome = "p" + i.to_s
+    print "Ponto #{i} - \n"
+    print "\tCord_x: "
+    x = gets.chomp.to_i
+    print "\tCord_y: "
+    y = gets.chomp.to_i
+    vet_pontos.push(Ponto.new(nome, x, y))
+    nome = ""
+end
+print "\nQual tolerância deseja usar? "
+tolerancia = gets.chomp.to_i
 #Pontos iniciais
 print "\n### Pontos Iniciais ###\n"
 vet_pontos.each {|x| print x.nome + "(" + (x.cord_x).to_s + "," + (x.cord_y).to_s + ")   " }
-tolerancia = 4
 resultado_final = simp_poligono(vet_pontos,tolerancia)
 print "\n\n### Pontos ao Final da Operação ###\n"
 #Pontos no final:
