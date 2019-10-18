@@ -33,19 +33,14 @@ def simp_poligono(vet_pontos, tolerancia)
     a,b,c = eq_reta(vet_pontos[0], vet_pontos[fim])
     #Equação da reta entre ponto inicial e final 
     reta = "\nreta que passa entre #{vet_pontos[0].nome} e #{vet_pontos[fim].nome}: #{a}x + (#{b}y) + (#{c}) = 0 \n" 
-    #print reta
     #Calcular a distância entre todos os pontos a reta e escolher escolher o ponto que está mais distante
     for i in 2..fim-1 do
-        #print "Dist entre #{vet_pontos[i].nome} e a reta: "
         vet_pontos[i].dist_reta = dist_ponto_reta(vet_pontos[i], a, b, c)
-        #print "#{vet_pontos[i].dist_reta}\n " 
         if(vet_pontos[i].dist_reta > maior_dist)
             maior_dist = vet_pontos[i].dist_reta
             maior_dist_i = i
         end
     end
-    #print "Ponto mais distante: #{vet_pontos[maior_dist_i].nome} -> dist: #{maior_dist} "
-    #print "Calcular agora: #{vet_pontos[0].nome} e #{vet_pontos[maior_dist_i].nome} || #{vet_pontos[maior_dist_i].nome} e #{vet_pontos[fim].nome}"    
     #Se a distancia é maior que a tolerancia deve-se simplificar recursivamente
     if maior_dist > tolerancia
         result1 = simp_poligono(vet_pontos[0..maior_dist_i], tolerancia)
@@ -59,13 +54,9 @@ def simp_poligono(vet_pontos, tolerancia)
         return pontos_resultantes
 end
 
-
-
 vet_pontos = Array.new
-pontos_resultantes = Array.new
-result1 = Array.new
-result2 = Array.new
 resultado_final = Array.new
+
 #CASO DE TESTE 1
 #vet_pontos.push(Ponto.new("p1",0,1)) #0
 #vet_pontos.push(Ponto.new("p2",1,2)) #1
@@ -87,7 +78,7 @@ resultado_final = Array.new
 #vet_pontos.push(Ponto.new("p9",10,3)) #8
 #tolerancia = 2
 
-print "Quantos pontos desse inserir? "
+print "Quantos pontos deseja inserir? "
 n_pontos = gets.chomp.to_i
 for i in 0..n_pontos - 1 do
     nome = "p" + i.to_s
