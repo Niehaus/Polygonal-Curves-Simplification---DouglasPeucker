@@ -10,7 +10,7 @@ end
 
 #distancia entre dois pontos
 def dist_p2p(pA, pB)
-    return Math.sqrt((pB.cord_x - pA.cord_x)**2 + (pB.cord_y - pA.cord_y)**2 )
+    return Math.sqrt((pB.cord_x - pA.cord_x)**2 + (pB.cord_y - pA.cord_y)**2)
 end
 
 #equação da reta que passa por A e B
